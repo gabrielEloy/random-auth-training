@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { useState} from 'react';
+import Routes from 'Routes';
+import { ThemeProvider } from 'styled-components';
+import * as THEMES from 'constants/theme';
+import GlobalStyles from 'GlobalStyles';
+import {ThemeContext} from 'contexts/themeContext';
+interface Props {
+  
 }
 
-export default App;
+type IDarkThemeState = 'main' | 'dark';
+
+const App = (props: Props) => {
+  const [theme, setTheme] = useState<IDarkThemeState>('main');
+
+  const toggleTheme = () => theme === 'main' ?
+  setTheme('dark') :
+  setTheme('main')
+
+  return (
+    <ThemeContext.Provider value={{
+      theme,
+      toggleTheme
+    }}>
+    <ThemeProvider theme={THEMES[theme]}>
+      <GlobalStyles />
+      <Routes />
+    </ThemeProvider>
+    </ThemeContext.Provider>
+  )
+}
+
+export default App

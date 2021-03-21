@@ -1,0 +1,17 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  html, body, div, span, a, h1, h2, h3, h4, h5, h6, p, blockquote, img, 
+  ol, ul, li, input, label, select, table, tbody, tfoot, thead, tr, th, 
+  td, footer, header, menu, nav, section, video{
+    margin: 0; padding: 0; font-size: 100%; list-style: none;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background: ${({theme}) => theme.background};
+    font-family: 'Noto Sans', sans-serif;
+  }
+`;
+
+export default GlobalStyle;
