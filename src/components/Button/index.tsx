@@ -8,6 +8,7 @@ const Button = styled.button`
     background: ${({theme}) => theme.primary};
     border-radius:0.5rem;
     border: none;
+    cursor: pointer;
 `
 
 

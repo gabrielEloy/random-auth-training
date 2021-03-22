@@ -5,4 +5,4 @@ export interface IContextTypes {
     toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<IContextTypes | null>(null);
+export const ThemeContext = createContext<IContextTypes>({} as IContextTypes);
